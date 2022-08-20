@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FootballLeagueManagementDisplay.Models.FootballLeagues>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowMatchDetails</title>
+</head>
+<body>
+    <div>
+        <h1>Football League</h1>
+        <h2>Winning Match Details</h2>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>@Html.DisplayNameFor(x => x.MatchId)</th>
+                <th>@Html.DisplayNameFor(x => x.TeamName1)</th>
+                <th>@Html.DisplayNameFor(x => x.TeamName2)</th>
+                <th>@Html.DisplayNameFor(x => x.Status)</th>
+                <th>@Html.DisplayNameFor(x => x.WinningTeam)</th>
+                <th>@Html.DisplayNameFor(x => x.Points)</th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayTextFor(x => item.MatchId)</td>
+                        <td>@Html.DisplayTextFor(x => item.TeamName1)</td>
+                        <td>@Html.DisplayTextFor(x => item.TeamName2)</td>
+                        <td>@Html.DisplayTextFor(x => item.Status)</td>
+                        <td>@Html.DisplayTextFor(x => item.WinningTeam)</td>
+                        <td>@Html.DisplayTextFor(x => item.Points)</td>
+                    </tr>
+
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>@Html.DisplayTextFor(x => "No Data")</td>
+                    <td>@Html.DisplayTextFor(x => "No Data")</td>
+                    <td>@Html.DisplayTextFor(x => "No Data")</td>
+                    <td>@Html.DisplayTextFor(x => "No Data")</td>
+                    <td>@Html.DisplayTextFor(x => "No Data")</td>
+                    <td>@Html.DisplayTextFor(x => "No Data")</td>
+                </tr>
+            }
+
+
+        </table>
+
+    </div>
+</body>
+</html>

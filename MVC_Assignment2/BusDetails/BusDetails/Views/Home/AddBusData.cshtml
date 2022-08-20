@@ -1,0 +1,65 @@
+﻿@model BusDetails.Models.BusInfo
+@{
+    List<SelectListItem> boardingPoint = new List<SelectListItem>
+{
+        new SelectListItem{Text="BGL" , Value="BGL" },
+        new SelectListItem{Text="CHN" , Value="CHN" },
+        new SelectListItem{Text="HYD" , Value="HYD" },
+        new SelectListItem{Text="MUM" , Value="MUM" },
+        new SelectListItem{Text="PUN" , Value="PUN" }
+    };
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>InsertBusInfo</title>
+    <link rel="stylesheet" href="~/Content/Insert.css">
+</head>
+<body>
+    <div>
+        <h1>PRK Travels</h1>
+        <h2>Add New Bus</h2>
+        <div id="AddForm">
+            <h3>@ViewBag.Message</h3>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+
+                <table id="InputTable">
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.BusID)</label></td>
+                        <td></td>
+                        <td class="InputElements">@Html.DropDownListFor(x => x.BoardingPoint, boardingPoint, "--Select Boarding Point--") @Html.ValidationMessageFor(x => x.BoardingPoint)</td>
+
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.TravelDate) </label></td>
+                        <td></td>
+                        <td class="InputElements"> @Html.TextBoxFor(x => x.TravelDate, new { @class = "InputTegs" , @type="Date"}) @Html.ValidationMessageFor(x => x.TravelDate)</td>
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.Amount)</label></td>
+                        <td></td>
+                        <td class="InputElements"> @Html.TextBoxFor(x => x.Amount, new { @class = "InputTegs",  @type="Decimal"}) @Html.ValidationMessageFor(x => x.Amount)</td>
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.Rating)</label></td>
+                        <td></td>
+                        <td class="InputElements"> @Html.TextBoxFor(x => x.Rating, new { @class = "InputTegs" , @type="Number"}) @Html.ValidationMessageFor(x => x.Rating)</td>
+                    </tr>
+
+                    <tr>
+                        <td class="InputElements"><input type="submit" value="Save Match Data" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+            }
+        </div>
+
+    </div>
+</body>
+</html>

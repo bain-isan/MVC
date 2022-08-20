@@ -1,0 +1,39 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    background-color: chartreuse;
+}
+
+h1{
+    font-size: 3rem;
+    margin: 3rem 0 1.5rem 0;
+}
+
+h2{
+    font-size:2rem;
+    margin: 1.5rem 0;
+}
+
+#InputElements {
+    justify-content:center;
+    font-size: 1rem;
+    margin: 1.5rem auto;
+}
+
+.InputElements {
+    margin: .5rem 0;
+    /*height: 1.6rem;*/
+}
+
+.InputTegs {
+    height: .5rem;
+    padding: .3rem;
+}
+
+#InputTable{
+    margin: 1.5rem auto;
+}

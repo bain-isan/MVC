@@ -1,0 +1,71 @@
+﻿@using FootblallLeagueManagement.Models
+@model FootballLeague
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddMatchResult</title>
+    <link rel="stylesheet" href="~/Content/AddStyle.css">
+</head>
+<body>
+    <div>
+        <h1>Football League</h1>
+        <h2>Add Match Result</h2>
+        <div id="AddForm">
+            <h3>@ViewBag.Message</h3>
+            @using (Html.BeginForm("AddMatchResult", "Add", FormMethod.Post))
+            {
+
+                <table id="InputTable">
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.MatchId)</label></td>
+                        <td></td>
+                        <td  class="InputElements">@Html.TextBoxFor(x => x.MatchId, new { @class = "InputTegs", @type="Number"}) @Html.ValidationMessageFor(x => x.MatchId)</td>
+
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.TeamName1) </label></td>
+                        <td></td>
+                        <td class="InputElements"> @Html.TextBoxFor(x => x.TeamName1, new { @class = "InputTegs" }) @Html.ValidationMessageFor(x => x.TeamName1)</td>
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.TeamName2)</label></td>
+                        <td></td>
+                        <td class="InputElements"> @Html.TextBoxFor(x => x.TeamName2, new { @class = "InputTegs" }) @Html.ValidationMessageFor(x => x.TeamName2)</td>
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.Status)</label></td>
+                        <td></td>
+                        <td class="InputElements">
+                            @Html.DropDownListFor(x => x.Status, new List<SelectListItem> { new SelectListItem { Text = "Win", Value = "WIN" }, new SelectListItem { Text = "Draw", Value = "DRAW" } }, "--Select Match Result--", new {@id="status"})
+                                                @Html.ValidationMessageFor(x => x.Status)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.WinningTeam)</label></td>
+                        <td></td>
+                        <td class="InputElements">
+                            @Html.TextBoxFor(x => x.WinningTeam, new { @class= "InputTegs" , @id= "winningTeam"})
+                            @Html.ValidationMessageFor(x => x.WinningTeam)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><label>@Html.DisplayNameFor(x => x.Points)</label></td>
+                        <td></td>
+                        <td class="InputElements">@Html.TextBoxFor(x => x.Points, new { @class = "InputTegs" }) @Html.ValidationMessageFor(x => x.Points)</td>
+                    </tr>
+                    <tr>
+                        <td class="InputElements"><input type="submit" value="Save Match Data" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+            }
+        </div>
+
+    </div>
+</body>
+</html>
